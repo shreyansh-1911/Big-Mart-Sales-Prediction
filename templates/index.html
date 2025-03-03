@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>BigMart Sales Predictor</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 50px; }
+        form { display: grid; gap: 10px; width: 300px; }
+        label { font-weight: bold; }
+        button { background-color: #28a745; color: white; padding: 8px; border: none; cursor: pointer; }
+        button:hover { background-color: #218838; }
+    </style>
+</head>
+<body>
+    <h2>BigMart Sales Predictor</h2>
+    <form method="POST">
+        <label>Item MRP:</label>
+        <input type="number" step="0.01" name="item_mrp" required>
+
+        <label>Fat Content:</label>
+        <select name="fat_content">
+            <option>Regular</option>
+            <option>Low Fat</option>
+        </select>
+
+        <label>Outlet Size:</label>
+        <select name="outlet_size">
+            <option>Small</option>
+            <option>Medium</option>
+            <option>Large</option>
+        </select>
+
+        <label>Outlet Location Type:</label>
+        <select name="location_type">
+            <option>Tier 1</option>
+            <option>Tier 2</option>
+            <option>Tier 3</option>
+        </select>
+
+        <label>Outlet Type:</label>
+        <select name="outlet_type">
+            <option>SuperMarketType1</option>
+            <option>SuperMarketType2</option>
+            <option>GroceryStore</option>
+        </select>
+
+        <label>Item Type:</label>
+        <select name="item_type">
+            <option>Baking Goods</option>
+            <option>Breads</option>
+            <option>Breakfast</option>
+            <option>Canned</option>
+            <option>Dairy</option>
+            <option>Frozen Foods</option>
+            <option>Fruits & Vegetables</option>
+            <option>Hard Drinks</option>
+            <option>Health & Hygiene</option>
+            <option>Household</option>
+            <option>Meat</option>
+            <option>Others</option>
+            <option>Seafood</option>
+            <option>Snack Foods</option>
+            <option>Soft Drinks</option>
+            <option>Starchy Foods</option>
+        </select>
+
+        <button type="submit">Predict Sales</button>
+    </form>
+
+    {% if prediction is not none %}
+        <h3>Predicted Sales: ₹{{ prediction }}</h3>
+    {% endif %}
+</body>
+</html>
